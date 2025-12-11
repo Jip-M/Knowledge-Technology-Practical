@@ -1,0 +1,197 @@
+{
+    "Questions":[
+        {
+            "Name": "Type",
+            "Question": "What is the type of the house?",
+            "Uniselect": 1,
+            "Asked": false,
+            "Options": ["Standalone", "2under1", "Corner-house", "In-between", "Apartment"]
+        },
+        {
+            "Name": "COOL",
+            "Question": "What COOL features does the house have?",
+            "Uniselect": 0,
+            "Asked": false,
+            "Options": ["Shed", "Garage", "Pool"]
+        },
+        {
+            "Name": "Plot",
+            "Question": "What is the plot size?",
+            "Uniselect": 1,
+            "Asked": false,
+            "Options": ["0-100m2","100-400m2","400-1000m2","1000m2+"]
+        }
+    ],
+    "Facts":[
+        //Goals:
+        {
+            "Name": "700k+",
+            "Value": -1
+        },
+        {
+            "Name": "500-700k",
+            "Value": -1
+        },
+        {
+            "Name": "300-500k",
+            "Value": -1
+        },
+        {
+            "Name": "<300k",
+            "Value": -1
+        },
+        // House types:
+        {
+            "Name": "Standalone",
+            "Value": -1
+        },
+        {
+            "Name": "2under1",
+            "Value": -1
+        },
+        {
+            "Name": "Corner-house",
+            "Value": -1
+        },
+        {
+            "Name": "In-between",
+            "Value": -1
+        },
+        {
+            "Name": "Apartment",
+            "Value": -1
+        },
+        // Energy labels:
+        {
+            "Name": ">A+",
+            "Value": -1
+        },
+        {
+            "Name": "C-B",
+            "Value": -1
+        },
+        {
+            "Name": "E-D",
+            "Value": -1
+        },
+        {
+            "Name": "G-F",
+            "Value": -1
+        },
+        // Plot size:
+        {
+            "Name": "0-100m2",
+            "Value": -1
+        },
+        {
+            "Name": "100-400m2",
+            "Value": -1
+        },
+        {
+            "Name": "400-1000m2",
+            "Value": -1
+        },
+        {
+            "Name": "1000m2+",
+            "Value": -1
+        },
+        // Living area:
+        {
+            "Name": "<50m2",
+            "Value": -1
+        },
+        {
+            "Name": "50-90m2",
+            "Value": -1
+        },
+        {
+            "Name": "90-150m2",
+            "Value": -1
+        },
+        {
+            "Name": "150-200m2",
+            "Value": -1
+        },
+        {
+            "Name": "200+",
+            "Value": -1
+        },
+        // Bedroom count:
+        {
+            "Name": "1",
+            "Value": -1
+        },
+        {
+            "Name": "2-3",
+            "Value": -1
+        },
+        {
+            "Name": "4+",
+            "Value": -1
+        },
+        // State of house:
+        {
+            "Name": "(Like) brand new",
+            "Value": -1
+        },
+        {
+            "Name": "Medium",
+            "Value": -1
+        },
+        {
+            "Name": "Old",
+            "Value": -1
+        },
+        //Cool features
+        {
+            "Name": "Shed",
+            "Value": -1
+        },
+        {
+            "Name": "Garage",
+            "Value": -1
+        },
+        {
+            "Name": "Pool",
+            "Value": -1
+        },
+        // Miscellaneous
+        {
+            "Name": "School proximity",
+            "Value": -1
+        },
+        {
+            "Name": "Store proximity",
+            "Value": -1
+        },
+        {
+            "Name": "Good neighbourhood reputation",
+            "Value": -1
+        },
+        {
+            "Name": "Presence of noise pollution",
+            "Value": -1
+        },
+        {
+            "Name": "Sunlight",
+            "Value": -1
+        },
+        {
+            "Name": "Beauty of location",
+            "Value": -1
+        }
+    ],
+    "Rules":[
+        {
+            "factName": "700k+",
+            "requirements": [
+                "Shed"
+            ]
+        },
+        {
+            "factName": "300-500k",
+            "requirements": [
+            ]
+        }
+    ]
+}
