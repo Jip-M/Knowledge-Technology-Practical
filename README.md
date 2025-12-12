@@ -1,3 +1,3 @@
 # Knowledge-Technology-Practical
 
-Go to the protorype branch to run the prototype
+Go to the prototype branch to run the prototype
