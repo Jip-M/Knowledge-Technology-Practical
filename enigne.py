@@ -2,9 +2,10 @@ from typing import TypedDict
 from typing import Literal
 import json
 
+from copy import deepcopy
 
 class Rule(TypedDict):
-    consequenct: str
+    consequent: str
     antecedent: dict[str, int]  # fact names
 
 
@@ -56,6 +57,11 @@ class Engine:
             if fact["name"] == fact_name and fact["value"] == value:
                 return True
         return False
+    
+    def _print_fact(self, fact_name: str) -> None:
+        for fact in self.kb["facts"]:
+            if fact["name"] == fact_name:
+                print(f"{fact['name']}, ({fact['value']})")
 
     def _check_rule_antecedents(self, rule: Rule) -> bool:
         for key, value in rule["antecedent"].items():
@@ -82,9 +88,13 @@ class Engine:
             self._set_fact_value(key, value)
 
     def _apply_rules(self):
+        reapply = False
         for rule in self.kb["rules"]:
             if self._check_rule_consequents(rule) and self._check_rule_antecedents(rule):
                 self._apply_rule(rule)
+                reapply = True
+        if reapply:
+            self._apply_rules()
 
     def _is_question_useful(self, question: Question) -> bool:
         if question["asked"]:
@@ -98,24 +108,33 @@ class Engine:
         print(question["question"])
         if not question["uniselect"]:
             print("This question is multiselect, input your different values and finish with #")
+        copied_question = deepcopy(question)
+        printed_index = 0
         for i, option in enumerate(question["options"]):
-            print(f"({i}) {option}")
+            #self._print_fact(option)
+            if self._is_fact_value(option, -1):
+                print(f"({printed_index}) {option}")
+                printed_index += 1
+            else:
+                copied_question["options"].pop(printed_index)
         print("######################\n")
+        return copied_question
 
-    def _get_player_input(self, question: Question) -> list[str]:
+    def _get_player_input(self, printed_question: Question) -> list[str]:
         picked_options = []
         answer = "cringe"
 
         while answer != "#":
             answer = input("GIMME YOUR NUMBER: ")
 
-            if answer.isdigit() and 0 <= int(answer) < len(question["options"]):
-                picked_options.append(question["options"][int(answer)])
-            elif answer != "#" or question["uniselect"]:
+            if answer.isdigit() and 0 <= int(answer) < len(printed_question["options"]):
+                picked_options.append(printed_question["options"][int(answer)])
+            elif answer != "#" or printed_question["uniselect"]:
                 print("INVALID INPUT")
+                answer = "cringe"
                 continue
 
-            if question["uniselect"]:
+            if printed_question["uniselect"]:
                 answer = "#"
         return picked_options
 
@@ -125,11 +144,12 @@ class Engine:
                 self._set_fact_value(option, 1)
             else:
                 self._set_fact_value(option, 0)
+            #self._print_fact(option)
 
     def _ask_question(self, question: Question) -> None:
         question["asked"] = True
-        self._print_question(question)
-        picked_options = self._get_player_input(question)
+        printed_questions = self._print_question(question)
+        picked_options = self._get_player_input(printed_questions)
         self._act_upon_picked_options(picked_options, question)
 
     def _get_next_question(self) -> Question | None:
@@ -137,10 +157,19 @@ class Engine:
             if self._is_question_useful(question):
                 return question
         return None
+    
+    def _inference_failed(self) -> None:
+        print("We apologise. We failed... :(\nthere is no house for you")
+
 
     def forward_inf(self):
         while not self._is_goal_reached()[0]:
-            self._ask_question(self._get_next_question())
+            next_question = self._get_next_question()
+            if not next_question:
+                self._inference_failed()
+                break
+            else:
+                self._ask_question(next_question)
             self._apply_rules()
         print(self._is_goal_reached()[1])
 

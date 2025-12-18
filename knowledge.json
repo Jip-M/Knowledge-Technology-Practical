@@ -1,28 +1,79 @@
 {
-    "questions":[
+    "questions": [
         {
             "name": "Type",
             "question": "What is the type of the house?",
             "uniselect": true,
             "asked": false,
-            "options": ["Standalone", "2under1", "Corner-house", "In-between", "Apartment"]
+            "options": [
+                "Standalone",
+                "2under1",
+                "Corner-house",
+                "In-between",
+                "Apartment"
+            ]
         },
         {
             "name": "COOL",
             "question": "What COOL features does the house have?",
             "uniselect": false,
             "asked": false,
-            "options": ["Shed", "Garage", "Pool"]
+            "options": [
+                "Shed",
+                "Garage",
+                "Pool"
+            ]
         },
         {
             "name": "Plot",
             "question": "What is the plot size?",
             "uniselect": true,
             "asked": false,
-            "options": ["0-100m2","100-400m2","400-1000m2","1000m2+"]
+            "options": [
+                "0-100m2",
+                "100-400m2",
+                "400-1000m2",
+                "1000m2+"
+            ]
+        },
+        {
+            "name": "Living",
+            "question": "What is the living area of the house?",
+            "uniselect": true,
+            "asked": false,
+            "options": [
+                "<50m2",
+                "50-90m2",
+                "90-150m2",
+                "150-200m2",
+                "200+"
+            ]
+        },
+        {
+            "name": "Energy",
+            "question": "What is the energy label of the house?",
+            "uniselect": true,
+            "asked": false,
+            "options": [
+                ">A",
+                "B-C",
+                "D-E",
+                "F-G"
+            ]
+        },
+        {
+            "name": "Bedrooms",
+            "question": "How many bedrooms does the house have?",
+            "uniselect": true,
+            "asked": false,
+            "options": [
+                "1",
+                "2-3",
+                "4+"
+            ]
         }
     ],
-    "facts":[
+    "facts": [
         {
             "name": "700k+",
             "value": -1
@@ -60,19 +111,19 @@
             "value": -1
         },
         {
-            "name": ">A+",
+            "name": ">A",
             "value": -1
         },
         {
-            "name": "C-B",
+            "name": "B-C",
             "value": -1
         },
         {
-            "name": "E-D",
+            "name": "D-E",
             "value": -1
         },
         {
-            "name": "G-F",
+            "name": "F-G",
             "value": -1
         },
         {
@@ -172,7 +223,7 @@
             "value": -1
         }
     ],
-    "rules":[
+    "rules": [
         {
             "consequent": {
                 "700k+": 1
@@ -183,14 +234,58 @@
         },
         {
             "consequent": {
-                "300-500k": 1
+                "Pool": 0,
+                "Shed": 0
             },
             "antecedent": {
-                "Shed": 0
+                "Apartment": 1
+            }
+        },
+        {
+            "consequent": {
+                "700k+": 1
+            },
+            "antecedent": {
+                "200+": 1,
+                "1000m2+": 1,
+                "B-C": 1
+            }
+        },
+        {
+            "consequent": {
+                "700k+": 1
+            },
+            "antecedent": {
+                "200+": 1,
+                "1000m2+": 1,
+                ">A": 1
+            }
+        },
+        {
+            "consequent": {
+                "500-700k": 1
+            },
+            "antecedent": {
+                "200+": 1,
+                "1000m2+": 1,
+                "D-E": 1
+            }
+        },
+        {
+            "consequent": {
+                "500-700k": 1
+            },
+            "antecedent": {
+                "200+": 1,
+                "1000m2+": 1,
+                "F-G": 1
             }
         }
     ],
-    "goals":[
-        "<300k", "300-500k", "500-700k", "700k+"
+    "goals": [
+        "<300k",
+        "300-500k",
+        "500-700k",
+        "700k+"
     ]
 }
