@@ -90,7 +90,7 @@
             "options": [
                 "Close proximity to school",
                 "Close proximity to store",
-                "Good reputation of the neighborhood",
+                "Good reputation of the neighbourhood",
                 "Beautiful nature and/or view"
             ]
         },
@@ -102,7 +102,7 @@
             "options": [
                 "Far away from school",
                 "Far away from store",
-                "Bad reputation of the neighborhood",
+                "Bad reputation of the neighbourhood",
                 "Ugly environment and/or view"
             ]
         },
@@ -234,35 +234,35 @@
             "value": -1
         },
         {
-            "name": "Close school",
+            "name": "Close proximity to school",
             "value": -1
         },
         {
-            "name": "Far school",
+            "name": "Far away from school",
             "value": -1
         },
         {
-            "name": "Close store",
+            "name": "Close proximity to store",
             "value": -1
         },
         {
-            "name": "Far store",
+            "name": "Far away from store",
             "value": -1
         },
         {
-            "name": "Good neighbourhood",
+            "name": "Good reputation of the neighbourhood",
             "value": -1
         },
         {
-            "name": "Bad neighbourhood",
+            "name": "Bad reputation of the neighbourhood",
             "value": -1
         },
         {
-            "name": "Pretty location",
+            "name": "Beautiful nature and/or view",
             "value": -1
         },
         {
-            "name": "Ugly location",
+            "name": "Ugly environment and/or view",
             "value": -1
         },
         {
@@ -276,7 +276,7 @@
         {
             "name": "Location value",
             "value": -1
-        },
+        }
         
     ],
     "rules": [
@@ -355,66 +355,66 @@
         },
         {
             "consequent": {
-                "Close store": 0
+                "Close proximity to store": 0
             },
             "antecedent": {
-                "Far store": 1
+                "Far away from store": 1
             }
         },
         {
             "consequent": {
-                "Far store": 0
+                "Far away from store": 0
             },
             "antecedent": {
-                "Close store": 1
+                "Close proximity to store": 1
             }
         },
         {
             "consequent": {
-                "Close school": 0
+                "Close proximity to school": 0
             },
             "antecedent": {
-                "Far school": 1
+                "Far away from school": 1
             }
         },
         {
             "consequent": {
-                "Far school": 0
+                "Far away from school": 0
             },
             "antecedent": {
-                "Close school": 1
+                "Close proximity to school": 1
             }
         },
         {
             "consequent": {
-                "Bad neighbourhood": 0
+                "Bad reputation of the neighbourhood": 0
             },
             "antecedent": {
-                "Good neighbourhood": 1
+                "Good reputation of the neighbourhood": 1
             }
         },
         {
             "consequent": {
-                "Good neighbourhood": 0
+                "Good reputation of the neighbourhood": 0
             },
             "antecedent": {
-                "Bad neighbourhood": 1
+                "Bad reputation of the neighbourhood": 1
             }
         },
         {
             "consequent": {
-                "Pretty location": 0
+                "Beautiful nature and/or view": 0
             },
             "antecedent": {
-                "Ugly location": 1
+                "Ugly environment and/or view": 1
             }
         },
         {
             "consequent": {
-                "Ugly location": 0
+                "Ugly environment and/or view": 0
             },
             "antecedent": {
-                "Pretty location": 1
+                "Beautiful nature and/or view": 1
             }
         },
         {
@@ -430,8 +430,8 @@
                 "Location value": 1
             },
             "antecedent": {
-                "Pretty location": 1,
-                "Good neighbourhood": 1
+                "Beautiful nature and/or view": 1,
+                "Good reputation of the neighbourhood": 1
             }
         },
         {
@@ -439,8 +439,8 @@
                 "Location value": 1
             },
             "antecedent": {
-                "Pretty location": 1,
-                "Close store": 1
+                "Beautiful nature and/or view": 1,
+                "Close proximity to store": 1
             }
         },
         {
@@ -448,8 +448,8 @@
                 "Location value": 0
             },
             "antecedent": {
-                "Ugly location": 1,
-                "Bad neighbourhood": 1
+                "Ugly environment and/or view": 1,
+                "Bad reputation of the neighbourhood": 1
             }
         },
         {
@@ -457,8 +457,8 @@
                 "Location value": 0
             },
             "antecedent": {
-                "Ugly location": 1,
-                "Far store": 1
+                "Ugly environment and/or view": 1,
+                "Far away from store": 1
             }
         },
         {
@@ -467,8 +467,8 @@
             },
             "antecedent": {
                 "Good neighbourhood reputation": 1,
-                "Close store": 1,
-                "Close school": 1,
+                "Close proximity to store": 1,
+                "Close proximity to school": 1,
                 "Noise pollution": 0
             }
         },
@@ -477,10 +477,10 @@
                 "Location value": 1
             },
             "antecedent": {
-                "Close store": 1,
-                "Close school": 1,
-                "Bad neighbourhood": 0,
-                "Ugly location": 0
+                "Close proximity to store": 1,
+                "Close proximity to school": 1,
+                "Bad reputation of the neighbourhood": 0,
+                "Ugly environment and/or view": 0
             }
         },
         {
@@ -488,10 +488,10 @@
                 "Location value": 0
             },
             "antecedent": {
-                "Far store": 1,
-                "Far school": 1,
-                "Good neighbourhood": 0,
-                "Pretty location": 0
+                "Far away from store": 1,
+                "Far away from school": 1,
+                "Good reputation of the neighbourhood": 0,
+                "Beautiful nature and/or view": 0
             }
         },
         
