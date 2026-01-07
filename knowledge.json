@@ -71,7 +71,42 @@
                 "2-3",
                 "4+"
             ]
-        }
+        },
+        {
+            "name": "Noise",
+            "question": "Is the house located in a noise polluted area? (for example next to a highway or train track)",
+            "uniselect": true,
+            "asked": false,
+            "options": [
+                "Yes",
+                "No"
+            ]
+        },
+        {
+            "name": "Good location factors",
+            "question": "Select all which apply for the location of the house?",
+            "uniselect": false,
+            "asked": false,
+            "options": [
+                "Close proximity to school",
+                "Close proximity to store",
+                "Good reputation of the neighborhood",
+                "Beautiful nature and/or view"
+            ]
+        },
+        {
+            "name": "Bad location factors",
+            "question": "Select all which apply for the location of the house?",
+            "uniselect": false,
+            "asked": false,
+            "options": [
+                "Far away from school",
+                "Far away from store",
+                "Bad reputation of the neighborhood",
+                "Ugly environment and/or view"
+            ]
+        },
+
     ],
     "facts": [
         {
@@ -199,19 +234,39 @@
             "value": -1
         },
         {
-            "name": "School proximity",
+            "name": "Close school",
             "value": -1
         },
         {
-            "name": "Store proximity",
+            "name": "Far school",
             "value": -1
         },
         {
-            "name": "Good neighbourhood reputation",
+            "name": "Close store",
             "value": -1
         },
         {
-            "name": "Presence of noise pollution",
+            "name": "Far store",
+            "value": -1
+        },
+        {
+            "name": "Good neighbourhood",
+            "value": -1
+        },
+        {
+            "name": "Bad neighbourhood",
+            "value": -1
+        },
+        {
+            "name": "Pretty location",
+            "value": -1
+        },
+        {
+            "name": "Ugly location",
+            "value": -1
+        },
+        {
+            "name": "Noise pollution",
             "value": -1
         },
         {
@@ -219,9 +274,10 @@
             "value": -1
         },
         {
-            "name": "Beauty of location",
+            "name": "Location value",
             "value": -1
-        }
+        },
+        
     ],
     "rules": [
         {
@@ -280,7 +336,169 @@
                 "1000m2+": 1,
                 "F-G": 1
             }
-        }
+        },
+        {
+            "consequent": {
+                "Bad location": 0
+            },
+            "antecedent": {
+                "Good location": 1
+            }
+        },
+        {
+            "consequent": {
+                "Good location": 0
+            },
+            "antecedent": {
+                "Bad location": 1
+            }
+        },
+        {
+            "consequent": {
+                "Close store": 0
+            },
+            "antecedent": {
+                "Far store": 1
+            }
+        },
+        {
+            "consequent": {
+                "Far store": 0
+            },
+            "antecedent": {
+                "Close store": 1
+            }
+        },
+        {
+            "consequent": {
+                "Close school": 0
+            },
+            "antecedent": {
+                "Far school": 1
+            }
+        },
+        {
+            "consequent": {
+                "Far school": 0
+            },
+            "antecedent": {
+                "Close school": 1
+            }
+        },
+        {
+            "consequent": {
+                "Bad neighbourhood": 0
+            },
+            "antecedent": {
+                "Good neighbourhood": 1
+            }
+        },
+        {
+            "consequent": {
+                "Good neighbourhood": 0
+            },
+            "antecedent": {
+                "Bad neighbourhood": 1
+            }
+        },
+        {
+            "consequent": {
+                "Pretty location": 0
+            },
+            "antecedent": {
+                "Ugly location": 1
+            }
+        },
+        {
+            "consequent": {
+                "Ugly location": 0
+            },
+            "antecedent": {
+                "Pretty location": 1
+            }
+        },
+        {
+            "consequent": {
+                "Location value": 0
+            },
+            "antecedent": {
+                "Noise pollution": 1
+            }
+        },
+        {
+            "consequent": {
+                "Location value": 1
+            },
+            "antecedent": {
+                "Pretty location": 1,
+                "Good neighbourhood": 1
+            }
+        },
+        {
+            "consequent": {
+                "Location value": 1
+            },
+            "antecedent": {
+                "Pretty location": 1,
+                "Close store": 1
+            }
+        },
+        {
+            "consequent": {
+                "Location value": 0
+            },
+            "antecedent": {
+                "Ugly location": 1,
+                "Bad neighbourhood": 1
+            }
+        },
+        {
+            "consequent": {
+                "Location value": 0
+            },
+            "antecedent": {
+                "Ugly location": 1,
+                "Far store": 1
+            }
+        },
+        {
+            "consequent": {
+                "Location value": 1
+            },
+            "antecedent": {
+                "Good neighbourhood reputation": 1,
+                "Close store": 1,
+                "Close school": 1,
+                "Noise pollution": 0
+            }
+        },
+        {
+            "consequent": {
+                "Location value": 1
+            },
+            "antecedent": {
+                "Close store": 1,
+                "Close school": 1,
+                "Bad neighbourhood": 0,
+                "Ugly location": 0
+            }
+        },
+        {
+            "consequent": {
+                "Location value": 0
+            },
+            "antecedent": {
+                "Far store": 1,
+                "Far school": 1,
+                "Good neighbourhood": 0,
+                "Pretty location": 0
+            }
+        },
+        
+        
+
+
+
     ],
     "goals": [
         "<300k",
