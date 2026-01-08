@@ -105,8 +105,7 @@
                 "Bad reputation of the neighbourhood",
                 "Ugly environment and/or view"
             ]
-        },
-
+        }
     ],
     "facts": [
         {
@@ -277,7 +276,6 @@
             "name": "Location value",
             "value": -1
         }
-        
     ],
     "rules": [
         {
@@ -493,12 +491,7 @@
                 "Good reputation of the neighbourhood": 0,
                 "Beautiful nature and/or view": 0
             }
-        },
-        
-        
-
-
-
+        }
     ],
     "goals": [
         "<300k",

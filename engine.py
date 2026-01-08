@@ -1,11 +1,8 @@
+from typing import TypedDict
+from typing import Literal
 import json
+
 from copy import deepcopy
-from typing import Literal, TypedDict
-
-import streamlit as st
-
-import ui
-
 
 class Rule(TypedDict):
     consequent: str
@@ -60,7 +57,7 @@ class Engine:
             if fact["name"] == fact_name and fact["value"] == value:
                 return True
         return False
-
+    
     def _print_fact(self, fact_name: str) -> None:
         for fact in self.kb["facts"]:
             if fact["name"] == fact_name:
@@ -93,9 +90,7 @@ class Engine:
     def _apply_rules(self):
         reapply = False
         for rule in self.kb["rules"]:
-            if self._check_rule_consequents(rule) and self._check_rule_antecedents(
-                rule
-            ):
+            if self._check_rule_consequents(rule) and self._check_rule_antecedents(rule):
                 self._apply_rule(rule)
                 reapply = True
         if reapply:
@@ -109,37 +104,14 @@ class Engine:
                 return True
         return False
 
-    def _st_print_question(self, question: Question):
-        if question["uniselect"]:
-            selected = ui.uniselect(
-                question["question"], options=question["options"], key=question["name"]
-            )
-        else:
-            options = self._st_remove_options(question)
-            selected = ui.multiselect(
-                question["question"], options=options, key=question["name"]
-            )
-        # next = ui.next_question(f"{question['name']}_button", on_click=...)
-
-        return selected
-
-    def _st_remove_options(self, question: Question):
-        copied_question = deepcopy(question)
-        for option in question["options"]:
-            if not self._is_fact_value(option, -1):
-                copied_question["options"].remove(option)
-        return copied_question["options"]
-
     def _print_question(self, question: Question):
         print(question["question"])
         if not question["uniselect"]:
-            print(
-                "This question is multiselect, input your different values and finish with #"
-            )
+            print("This question is multiselect, input your different values and finish with #")
         copied_question = deepcopy(question)
         printed_index = 0
         for i, option in enumerate(question["options"]):
-            # self._print_fact(option)
+            #self._print_fact(option)
             if self._is_fact_value(option, -1):
                 print(f"({printed_index}) {option}")
                 printed_index += 1
@@ -166,16 +138,13 @@ class Engine:
                 answer = "#"
         return picked_options
 
-    def _act_upon_picked_options(
-        self, picked_options: list[str] | None, question: Question
-    ):
-        if picked_options:
-            for option in question["options"]:
-                if option in picked_options:
-                    self._set_fact_value(option, 1)
-                else:
-                    self._set_fact_value(option, 0)
-                # self._print_fact(option)
+    def _act_upon_picked_options(self, picked_options: list[str], question: Question):
+        for option in question["options"]:
+            if option in picked_options:
+                self._set_fact_value(option, 1)
+            else:
+                self._set_fact_value(option, 0)
+            #self._print_fact(option)
 
     def _ask_question(self, question: Question) -> None:
         question["asked"] = True
@@ -183,52 +152,25 @@ class Engine:
         picked_options = self._get_player_input(printed_questions)
         self._act_upon_picked_options(picked_options, question)
 
-    def _st_ask_question(self, question: Question) -> None:
-        question["asked"] = True
-        picked_options = self._st_print_question(question)
-        # while self._st_wait_for_user_input:
-        #     pass
-        self._act_upon_picked_options(picked_options, question)
-
     def _get_next_question(self) -> Question | None:
         for question in self.kb["questions"]:
             if self._is_question_useful(question):
                 return question
         return None
-
+    
     def _inference_failed(self) -> None:
         print("We apologise. We failed... :(\nthere is no house for you")
 
-    # def _st_wait_for_user_input(
-    #     self, question: Question, selected_options: list
-    # ) -> bool:
-    #     if question["uniselect"]:
-    #         if selected_options is not None and ui.next_question(
-    #             key=f"next_{question['name']}"
-    #         ):
-    #             return False
-    #     else:
-    #         if ui.next_question(key=f"next_{question['name']}"):
-    #             return False
-    #     return True
 
     def forward_inf(self):
-        iterator = 0
         while not self._is_goal_reached()[0]:
-            # next_question = st.checkbox(
-            #     "next question",
-            #     key=str(iterator),
-            #     on_change=self._get_next_question(),
-            # )
             next_question = self._get_next_question()
             if not next_question:
                 self._inference_failed()
                 break
             else:
-                # self._ask_question(next_question)
-                self._st_ask_question(next_question)
+                self._ask_question(next_question)
             self._apply_rules()
-            iterator += 1
         print(self._is_goal_reached()[1])
 
 
