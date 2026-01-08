@@ -183,12 +183,14 @@ class Engine:
         picked_options = self._get_player_input(printed_questions)
         self._act_upon_picked_options(picked_options, question)
 
-    def _st_ask_question(self, question: Question) -> None:
+    def _st_ask_question(self, question: Question) -> bool:
         question["asked"] = True
         picked_options = self._st_print_question(question)
-        # while self._st_wait_for_user_input:
-        #     pass
+        if question["uniselect"] and picked_options[0] is None:
+            st.markdown("Please select an option above")
+            return False
         self._act_upon_picked_options(picked_options, question)
+        return True
 
     def _get_next_question(self) -> Question | None:
         for question in self.kb["questions"]:
@@ -213,23 +215,29 @@ class Engine:
     #     return True
 
     def forward_inf(self):
-        iterator = 0
-        while not self._is_goal_reached()[0]:
-            # next_question = st.checkbox(
+        if not self._is_goal_reached()[0]:
+            # next = st.checkbox(
             #     "next question",
             #     key=str(iterator),
-            #     on_change=self._get_next_question(),
             # )
             next_question = self._get_next_question()
             if not next_question:
-                self._inference_failed()
-                break
-            else:
-                # self._ask_question(next_question)
-                self._st_ask_question(next_question)
+                st.markdown(self._inference_failed())
+                return None
+            user_input = self._st_ask_question(next_question)
             self._apply_rules()
-            iterator += 1
-        print(self._is_goal_reached()[1])
+            st.markdown("")
+            next = st.checkbox(
+                "next question",
+                key=f"{next_question['name']}_next",
+            )
+            if next and user_input:
+                self.forward_inf()
+
+        else:
+            st.markdown(self._is_goal_reached()[1])
+            print(self._is_goal_reached()[1])
+            return None
 
 
 if __name__ == "__main__":
