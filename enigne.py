@@ -1,10 +1,17 @@
 import json
 from copy import deepcopy
+from enum import Enum
 from typing import Literal, TypedDict
 
 import streamlit as st
 
 import ui
+
+
+class Fact_value(Enum):
+    true = 1
+    false = 0
+    unknown = -1
 
 
 class Rule(TypedDict):
@@ -32,7 +39,7 @@ class KnowledgeBase(TypedDict):
     goals: list[Fact]
 
 
-fact_values = Literal[-1, 0, 1]
+fact_values = Fact_value  # Literal[-1, 0, 1]
 
 
 class Engine:
@@ -51,7 +58,10 @@ class Engine:
 
     def _is_goal_reached(self) -> tuple[bool, str]:
         for fact in self.kb["facts"]:
-            if fact["name"] in self.kb["goals"] and fact["value"] == 1:
+            if (
+                fact["name"] in self.kb["goals"]
+                and fact["value"] == Fact_value.true.value
+            ):
                 return True, fact["name"]
         return False, "ugabuga"
 
@@ -77,7 +87,7 @@ class Engine:
         CHecks if rule can produce new knowledge (if on of the consequents is not known).
         """
         for key in rule["consequent"]:
-            if self._is_fact_value(key, -1):
+            if self._is_fact_value(key, Fact_value.unknown.value):
                 return True
         return False
 
@@ -105,7 +115,7 @@ class Engine:
         if question["asked"]:
             return False
         for fact_name in question["options"]:
-            if self._is_fact_value(fact_name, -1):
+            if self._is_fact_value(fact_name, Fact_value.unknown.value):
                 return True
         return False
 
@@ -126,7 +136,7 @@ class Engine:
     def _st_remove_options(self, question: Question):
         copied_question = deepcopy(question)
         for option in question["options"]:
-            if not self._is_fact_value(option, -1):
+            if not self._is_fact_value(option, Fact_value.unknown.value):
                 copied_question["options"].remove(option)
         return copied_question["options"]
 
@@ -140,7 +150,7 @@ class Engine:
         printed_index = 0
         for i, option in enumerate(question["options"]):
             # self._print_fact(option)
-            if self._is_fact_value(option, -1):
+            if self._is_fact_value(option, Fact_value.unknown.value):
                 print(f"({printed_index}) {option}")
                 printed_index += 1
             else:
@@ -172,9 +182,9 @@ class Engine:
         if picked_options:
             for option in question["options"]:
                 if option in picked_options:
-                    self._set_fact_value(option, 1)
+                    self._set_fact_value(option, Fact_value.true.value)
                 else:
-                    self._set_fact_value(option, 0)
+                    self._set_fact_value(option, Fact_value.false.value)
                 # self._print_fact(option)
 
     def _ask_question(self, question: Question) -> None:
@@ -198,8 +208,8 @@ class Engine:
                 return question
         return None
 
-    def _inference_failed(self) -> None:
-        print("We apologise. We failed... :(\nthere is no house for you")
+    def _inference_failed(self) -> str:
+        return "We apologise. We failed... :(\nthere is no house for you"
 
     # def _st_wait_for_user_input(
     #     self, question: Question, selected_options: list
@@ -236,6 +246,7 @@ class Engine:
 
         else:
             st.markdown(self._is_goal_reached()[1])
+            st.balloons()
             print(self._is_goal_reached()[1])
             return None
 
