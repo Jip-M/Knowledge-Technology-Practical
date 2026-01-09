@@ -11,6 +11,12 @@ This is our inference engine.
 )
 
 
+def general_ui():
+    st.header("House Price Indicator")
+    st.markdown("Get your house price indication :red[TODAY]")
+    st.markdown(":small[Made by Matei, Sara and Oscar]")
+
+
 def multiselect(question, options, key):
     st.markdown(f"**{question}**")
     selected = []

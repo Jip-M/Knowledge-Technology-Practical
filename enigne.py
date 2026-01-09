@@ -225,6 +225,7 @@ class Engine:
     #     return True
 
     def forward_inf(self):
+        ui.general_ui()
         if not self._is_goal_reached()[0]:
             # next = st.checkbox(
             #     "next question",
