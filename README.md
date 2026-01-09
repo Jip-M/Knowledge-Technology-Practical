@@ -1,4 +1,4 @@
 # Knowledge-Technology-Practical
 
-To run the prototype, run the engine.py file. The process will start and await input in the console.
-At this stage of the project, the requirements.txt file can be ignored, no external libraries are needed.
+To run the prototype, open your favourite virtual environment, download the requirements in requirements.txt. Then type in terminal "streamlit run enigne.py". The process will open up a steamlit browser.
+
