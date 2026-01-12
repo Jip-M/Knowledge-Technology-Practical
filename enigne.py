@@ -58,10 +58,7 @@ class Engine:
 
     def _is_goal_reached(self) -> tuple[bool, str]:
         for fact in self.kb["facts"]:
-            if (
-                fact["name"] in self.kb["goals"]
-                and fact["value"] == Fact_value.true.value
-            ):
+            if fact["name"] in self.kb["goals"] and fact["value"] == Fact_value.true.value:
                 return True, fact["name"]
         return False, "ugabuga"
 
@@ -103,9 +100,7 @@ class Engine:
     def _apply_rules(self):
         reapply = False
         for rule in self.kb["rules"]:
-            if self._check_rule_consequents(rule) and self._check_rule_antecedents(
-                rule
-            ):
+            if self._check_rule_consequents(rule) and self._check_rule_antecedents(rule):
                 self._apply_rule(rule)
                 reapply = True
         if reapply:
@@ -121,14 +116,10 @@ class Engine:
 
     def _st_print_question(self, question: Question):
         if question["uniselect"]:
-            selected = ui.uniselect(
-                question["question"], options=question["options"], key=question["name"]
-            )
+            selected = ui.uniselect(question["question"], options=question["options"], key=question["name"])
         else:
             options = self._st_remove_options(question)
-            selected = ui.multiselect(
-                question["question"], options=options, key=question["name"]
-            )
+            selected = ui.multiselect(question["question"], options=options, key=question["name"])
         # next = ui.next_question(f"{question['name']}_button", on_click=...)
 
         return selected
@@ -143,9 +134,7 @@ class Engine:
     def _print_question(self, question: Question):
         print(question["question"])
         if not question["uniselect"]:
-            print(
-                "This question is multiselect, input your different values and finish with #"
-            )
+            print("This question is multiselect, input your different values and finish with #")
         copied_question = deepcopy(question)
         printed_index = 0
         for i, option in enumerate(question["options"]):
@@ -176,9 +165,7 @@ class Engine:
                 answer = "#"
         return picked_options
 
-    def _act_upon_picked_options(
-        self, picked_options: list[str] | None, question: Question
-    ):
+    def _act_upon_picked_options(self, picked_options: list[str] | None, question: Question):
         if picked_options:
             for option in question["options"]:
                 if option in picked_options:
@@ -197,7 +184,6 @@ class Engine:
         question["asked"] = True
         picked_options = self._st_print_question(question)
         if question["uniselect"] and picked_options[0] is None:
-            st.markdown("Please select an option above")
             return False
         self._act_upon_picked_options(picked_options, question)
         return True
@@ -225,7 +211,6 @@ class Engine:
     #     return True
 
     def forward_inf(self):
-        ui.general_ui()
         if not self._is_goal_reached()[0]:
             # next = st.checkbox(
             #     "next question",
@@ -246,7 +231,8 @@ class Engine:
                 self.forward_inf()
 
         else:
-            st.markdown(self._is_goal_reached()[1])
+            st.markdown("We estimate the price of your house to be:")
+            st.markdown(f":red[{self._is_goal_reached()[1]}]")
             st.balloons()
             print(self._is_goal_reached()[1])
             return None

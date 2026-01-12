@@ -1,24 +1,9 @@
 import streamlit as st
 
-st.title("House price inference engine")
-
-st.markdown(
-    """
-Welcome world! :)
-
-This is our inference engine.
-    """
-)
-
-
-def general_ui():
-    st.header("House Price Indicator")
-    st.markdown("Get your house price indication :red[TODAY]")
-    st.markdown(":small[Made by Matei, Sara and Oscar]")
-
 
 def multiselect(question, options, key):
-    st.markdown(f"**{question}**")
+    st.divider()
+    st.markdown(f"### **{question}**")
     selected = []
 
     for opt in options:
@@ -29,7 +14,8 @@ def multiselect(question, options, key):
 
 
 def uniselect(question, options, key):
-    st.markdown(f"**{question}**")
+    st.divider()
+    st.markdown(f"### **{question}**")
     selected = []
 
     selected.append(st.radio("", options, key=key, index=None))
