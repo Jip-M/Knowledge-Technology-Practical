@@ -117,7 +117,6 @@ class Engine:
         else:
             options = self._st_remove_options(question)
             selected = ui.multiselect(question["question"], options=options, key=question["name"])
-        # next = ui.next_question(f"{question['name']}_button", on_click=...)
 
         return selected
 
@@ -128,40 +127,6 @@ class Engine:
                 copied_question["options"].remove(option)
         return copied_question["options"]
 
-    def _print_question(self, question: Question):
-        print(question["question"])
-        if not question["uniselect"]:
-            print("This question is multiselect, input your different values and finish with #")
-        copied_question = deepcopy(question)
-        printed_index = 0
-        for _, option in enumerate(question["options"]):
-            # self._print_fact(option)
-            if self._is_fact_value(option, Fact_value.unknown.value):
-                print(f"({printed_index}) {option}")
-                printed_index += 1
-            else:
-                copied_question["options"].pop(printed_index)
-        print("######################\n")
-        return copied_question
-
-    def _get_player_input(self, printed_question: Question) -> list[str]:
-        picked_options = []
-        answer = "cringe"
-
-        while answer != "#":
-            answer = input("GIMME YOUR NUMBER: ")
-
-            if answer.isdigit() and 0 <= int(answer) < len(printed_question["options"]):
-                picked_options.append(printed_question["options"][int(answer)])
-            elif answer != "#" or printed_question["uniselect"]:
-                print("INVALID INPUT")
-                answer = "cringe"
-                continue
-
-            if printed_question["uniselect"]:
-                answer = "#"
-        return picked_options
-
     def _act_upon_picked_options(self, picked_options: list[str] | None, question: Question):
         if picked_options:
             for option in question["options"]:
@@ -169,12 +134,6 @@ class Engine:
                     self._set_fact_value(option, Fact_value.true.value)
                 else:
                     self._set_fact_value(option, Fact_value.false.value)
-
-    def _ask_question(self, question: Question) -> None:
-        question["asked"] = True
-        printed_questions = self._print_question(question)
-        picked_options = self._get_player_input(printed_questions)
-        self._act_upon_picked_options(picked_options, question)
 
     def _st_ask_question(self, question: Question) -> bool:
         question["asked"] = True
