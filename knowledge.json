@@ -62,27 +62,6 @@
             ]
         },
         {
-            "name": "Bedrooms",
-            "question": "How many bedrooms does the house have?",
-            "uniselect": true,
-            "asked": false,
-            "options": [
-                "1",
-                "2-3",
-                "4+"
-            ]
-        },
-        {
-            "name": "Noise",
-            "question": "Is the house located in a noise polluted area? (for example next to a highway or train track)",
-            "uniselect": true,
-            "asked": false,
-            "options": [
-                "Yes",
-                "No"
-            ]
-        },
-        {
             "name": "Good location factors",
             "question": "Select all which apply for the location of the house?",
             "uniselect": false,
@@ -91,7 +70,9 @@
                 "Close proximity to school",
                 "Close proximity to store",
                 "Good reputation of the neighbourhood",
-                "Beautiful nature and/or view"
+                "Beautiful nature and/or view",
+                "Quiet neighbourhood",
+                "Plenty sunlight"
             ]
         },
         {
@@ -103,7 +84,9 @@
                 "Far away from school",
                 "Far away from store",
                 "Bad reputation of the neighbourhood",
-                "Ugly environment and/or view"
+                "Ugly environment and/or view",
+                "Noise pollution",
+                "Little sunlight"
             ]
         }
     ],
@@ -197,30 +180,6 @@
             "value": -1
         },
         {
-            "name": "1",
-            "value": -1
-        },
-        {
-            "name": "2-3",
-            "value": -1
-        },
-        {
-            "name": "4+",
-            "value": -1
-        },
-        {
-            "name": "(Like) brand new",
-            "value": -1
-        },
-        {
-            "name": "Medium",
-            "value": -1
-        },
-        {
-            "name": "Old",
-            "value": -1
-        },
-        {
             "name": "Shed",
             "value": -1
         },
@@ -269,7 +228,15 @@
             "value": -1
         },
         {
-            "name": "Sunlight",
+            "name": "Quiet neighbourhood",
+            "value": -1
+        },
+        {
+            "name": "Plenty sunlight",
+            "value": -1
+        },
+        {
+            "name": "Little sunlight",
             "value": -1
         },
         {
