@@ -70,9 +70,7 @@
                 "Close proximity to school",
                 "Close proximity to store",
                 "Good reputation of the neighbourhood",
-                "Beautiful nature and/or view",
-                "Quiet neighbourhood",
-                "Plenty sunlight"
+                "Beautiful nature and/or view"
             ]
         },
         {
@@ -85,8 +83,7 @@
                 "Far away from store",
                 "Bad reputation of the neighbourhood",
                 "Ugly environment and/or view",
-                "Noise pollution",
-                "Little sunlight"
+                "Noise pollution"
             ]
         }
     ],
@@ -192,14 +189,6 @@
             "value": -1
         },
         {
-            "name": "Close proximity to school",
-            "value": -1
-        },
-        {
-            "name": "Far away from school",
-            "value": -1
-        },
-        {
             "name": "Close proximity to store",
             "value": -1
         },
@@ -228,35 +217,30 @@
             "value": -1
         },
         {
-            "name": "Quiet neighbourhood",
+            "name": "Big",
             "value": -1
         },
         {
-            "name": "Plenty sunlight",
+            "name": "Good location",
             "value": -1
         },
         {
-            "name": "Little sunlight",
+            "name": "Bad location",
             "value": -1
         },
         {
-            "name": "Location value",
+            "name": "Many",
+            "value": -1
+        },
+        {
+            "name": "Efficient",
             "value": -1
         }
     ],
     "rules": [
         {
             "consequent": {
-                "700k+": 1
-            },
-            "antecedent": {
-                "Shed": 1
-            }
-        },
-        {
-            "consequent": {
-                "Pool": 0,
-                "Shed": 0
+                "0-100m2": 1
             },
             "antecedent": {
                 "Apartment": 1
@@ -264,42 +248,10 @@
         },
         {
             "consequent": {
-                "700k+": 1
+                "Pool": 0
             },
             "antecedent": {
-                "200+": 1,
-                "1000m2+": 1,
-                "B-C": 1
-            }
-        },
-        {
-            "consequent": {
-                "700k+": 1
-            },
-            "antecedent": {
-                "200+": 1,
-                "1000m2+": 1,
-                ">A": 1
-            }
-        },
-        {
-            "consequent": {
-                "500-700k": 1
-            },
-            "antecedent": {
-                "200+": 1,
-                "1000m2+": 1,
-                "D-E": 1
-            }
-        },
-        {
-            "consequent": {
-                "500-700k": 1
-            },
-            "antecedent": {
-                "200+": 1,
-                "1000m2+": 1,
-                "F-G": 1
+                "Apartment": 1
             }
         },
         {
@@ -318,6 +270,920 @@
                 "Bad location": 1
             }
         },
+
+
+
+
+        {
+            "consequent": {
+                "Big": 1
+            },
+            "antecedent": {
+                "1000m2+": 1
+            }
+        },
+        {
+            "consequent": {
+                "Big": 1
+            },
+            "antecedent": {
+                "200+": 1
+            }
+        },
+        {
+            "consequent": {
+                "Big": 1
+            },
+            "antecedent": {
+                "400-1000m2": 1
+            }
+        },
+        {
+            "consequent": {
+                "Big": 1
+            },
+            "antecedent": {
+                "150-200m2": 1
+            }
+        },
+        {
+            "consequent": {
+                "Big": 1
+            },
+            "antecedent": {
+                "90-150m2": 1,
+                "Apartment": 1
+            }
+        },
+        {
+            "consequent": {
+                "Big": 1
+            },
+            "antecedent": {
+                "90-150m2": 1,
+                "In-between": 1,
+                "0-100m2": 0
+            }
+        },
+        {
+            "consequent": {
+                "Big": 1
+            },
+            "antecedent": {
+                "90-150m2": 1,
+                "Corner-house": 1,
+                "0-100m2": 0
+            }
+        },
+        {
+            "consequent": {
+                "Big": 0
+            },
+            "antecedent": {
+                "Big": -1,
+                "50-90m2": 0
+            }
+        },
+        {
+            "consequent": {
+                "Big": 0
+            },
+            "antecedent": {
+                "Big": -1,
+                "90-150m2": 0
+            }
+        },
+
+
+
+
+        {
+            "consequent": {
+                "Efficient": 1
+            },
+            "antecedent": {
+                ">A": 1
+            }
+        },
+        {
+            "consequent": {
+                "Efficient": 1
+            },
+            "antecedent": {
+                "Small": 1,
+                "B-C": 1
+            }
+        },
+        {
+            "consequent": {
+                "Efficient": 0
+            },
+            "antecedent": {
+                "D-E":1
+            }
+        },
+        {
+            "consequent": {
+                "Efficient": 0
+            },
+            "antecedent": {
+                "F-G":1
+            }
+        },
+
+
+
+
+        {
+            "consequent": {
+                "<300k": 1
+            },
+            "antecedent": {
+                "Many": 0,
+                "Apartment": 1,
+                "Big": 0,
+                "Efficient": 1,
+                "Bad location": 1
+            }
+        },
+        {
+            "consequent": {
+                "350-500k": 1
+            },
+            "antecedent": {
+                "Many": 0,
+                "Apartment": 1,
+                "Big": 0,
+                "Efficient": 1,
+                "Bad location": 0
+            }
+        },
+        {
+            "consequent": {
+                "<300k": 1
+            },
+            "antecedent": {
+                "Many": 1,
+                "Apartment": 1,
+                "Big": 0,
+                "Efficient": 1,
+                "Bad location": 1
+            }
+        },
+        {
+            "consequent": {
+                "350-500k": 1
+            },
+            "antecedent": {
+                "Many": 1,
+                "Apartment": 1,
+                "Big": 0,
+                "Efficient": 1,
+                "Good location": 0,
+                "Bad location": 0
+            }
+        },
+        {
+            "consequent": {
+                "500-700k": 1
+            },
+            "antecedent": {
+                "Many": 1,
+                "Apartment": 1,
+                "Big": 0,
+                "Efficient": 1,
+                "Good location": 1
+            }
+        },
+        {
+            "consequent": {
+                "<300k": 1
+            },
+            "antecedent": {
+                "Many": 0,
+                "Apartment": 1,
+                "Big": 0,
+                "Efficient": 0,
+                "Good location": 0
+            }
+        },
+        {
+            "consequent": {
+                "300-500k": 1
+            },
+            "antecedent": {
+                "Many": 0,
+                "Apartment": 1,
+                "Big": 0,
+                "Efficient": 0,
+                "Good location": 1
+            }
+        },
+        {
+            "consequent": {
+                "<300k": 1
+            },
+            "antecedent": {
+                "Many": 1,
+                "Apartment": 1,
+                "Big": 0,
+                "Efficient": 0,
+                "Bad location": 1
+            }
+        },
+        {
+            "consequent": {
+                "300-500k": 1
+            },
+            "antecedent": {
+                "Many": 1,
+                "Apartment": 1,
+                "Big": 0,
+                "Efficient": 0,
+                "Bad location": 0
+            }
+        },
+
+
+        {
+            "consequent": {
+                "<300k": 1
+            },
+            "antecedent": {
+                "Many": 1,
+                "Apartment": 1,
+                "Big": 1,
+                "Efficient": 0,
+                "Bad location": 1
+            }
+        },
+        {
+            "consequent": {
+                "300-500k": 1
+            },
+            "antecedent": {
+                "Many": 1,
+                "Apartment": 1,
+                "Big": 1,
+                "Efficient": 0
+            }
+        },
+        {
+            "consequent": {
+                "500-700k": 1
+            },
+            "antecedent": {
+                "Many": 1,
+                "Apartment": 1,
+                "Big": 1,
+                "Efficient": 0,
+                "Good location": 1
+            }
+        },
+        {
+            "consequent": {
+                "300-500k": 1
+            },
+            "antecedent": {
+                "Many": 1,
+                "Apartment": 1,
+                "Big": 1,
+                "Efficient": 1,
+                "Good location": 0
+            }
+        },
+        {
+            "consequent": {
+                "500-700k": 1
+            },
+            "antecedent": {
+                "Many": 1,
+                "Apartment": 1,
+                "Big": 1,
+                "Efficient": 1,
+                "Good location": 1
+            }
+        },
+        {
+            "consequent": {
+                "<300k": 1
+            },
+            "antecedent": {
+                "Many": 0,
+                "Apartment": 1,
+                "Big": 1,
+                "Efficient": 0,
+                "Good location": 0
+            }
+        },
+        {
+            "consequent": {
+                "300-500k": 1
+            },
+            "antecedent": {
+                "Many": 0,
+                "Apartment": 1,
+                "Big": 1,
+                "Efficient": 0,
+                "Good location": 1
+            }
+        },
+        {
+            "consequent": {
+                "<300k": 1
+            },
+            "antecedent": {
+                "Many": 1,
+                "Apartment": 1,
+                "Big": 1,
+                "Efficient": 0,
+                "Bad location": 1
+            }
+        },
+        {
+            "consequent": {
+                "300-500k": 1
+            },
+            "antecedent": {
+                "Many": 1,
+                "Apartment": 1,
+                "Big": 1,
+                "Efficient": 0,
+                "Bad location": 0
+            }
+        },
+
+
+
+
+
+
+
+
+
+
+        {
+            "consequent": {
+                "300-500k": 1
+            },
+            "antecedent": {
+                "Bad location":1,
+                "Big":0,
+                "Effecient":1,
+                "2under1":1
+            }
+        },
+        {
+            "consequent": {
+                "500-700k": 1
+            },
+            "antecedent": {
+                "Bad location":0,
+                "Good location":0,
+                "Big":0,
+                "Effecient":1,
+                "2under1":1
+            }
+        },
+        {
+            "consequent": {
+                "300-500k": 1
+            },
+            "antecedent": {
+                "Good location":1,
+                "Big":0,
+                "Effecient":1,
+                "2under1":1
+            }
+        },
+        {
+            "consequent": {
+                "<300k": 1
+            },
+            "antecedent": {
+                "Bad location":1,
+                "Big":0,
+                "Effecient":0,
+                "Many":0,
+                "2under1":1
+            }
+        },
+        {
+            "consequent": {
+                "<300k": 1
+            },
+            "antecedent": {
+                "Bad location":0,
+                "Good location":0,
+                "Big":0,
+                "Effecient":0,
+                "Many":0,
+                "2under1":1
+
+            }
+        },
+        {
+            "consequent": {
+                "300-500k": 1
+            },
+            "antecedent": {
+                "Good location":1,
+                "Big":0,
+                "Effecient":0,
+                "Many":0,
+                "2under1":1
+            }
+        },
+
+
+
+        {
+            "consequent": {
+                "<300k": 1
+            },
+            "antecedent": {
+                "Bad location":1,
+                "Big":0,
+                "Effecient":0,
+                "Many":1,
+                "2under1":1
+            }
+        },
+        {
+            "consequent": {
+                "300-500k": 1
+            },
+            "antecedent": {
+                "Bad location":0,
+                "Good location":0,
+                "Big":0,
+                "Effecient":0,
+                "Many":1,
+                "2under1":1
+
+            }
+        },
+        {
+            "consequent": {
+                "500-700k": 1
+            },
+            "antecedent": {
+                "Good location":1,
+                "Big":0,
+                "Effecient":0,
+                "Many":1,
+                "2under1":1
+            }
+        },
+        {
+            "consequent": {
+                "<300k": 1
+            },
+            "antecedent": {
+                "Bad location":1,
+                "Big":1,
+                "Effecient":1,
+                "Many":0,
+                "2under1":1
+            }
+        },
+        {
+            "consequent": {
+                "500-700k": 1
+            },
+            "antecedent": {
+                "Bad location":0,
+                "Good location":0,
+                "Big":1,
+                "Effecient":1,
+                "Many":0,
+                "2under1":1
+
+            }
+        },
+        {
+            "consequent": {
+                "700k+": 1
+            },
+            "antecedent": {
+                "Good location":1,
+                "Big":1,
+                "Effecient":1,
+                "Many":0,
+                "2under1":1
+            }
+        },
+        {
+            "consequent": {
+                "300-500k":1
+            },
+            "antecedent": {
+                "Bad location":1,
+                "Big":1,
+                "Effecient":1,
+                "Many":1,
+                "2under1":1
+            }
+        },
+        {
+            "consequent": {
+                "500-700k": 1
+            },
+            "antecedent": {
+                "Bad location":0,
+                "Good location":0,
+                "Big":1,
+                "Effecient":1,
+                "Many":1,
+                "2under1":1
+
+            }
+        },
+        {
+            "consequent": {
+                "700k+": 1
+            },
+            "antecedent": {
+                "Good location":1,
+                "Big":1,
+                "Effecient":1,
+                "Many":1,
+                "2under1":1
+            }
+        },
+        {
+            "consequent": {
+                "<300k":1
+            },
+            "antecedent": {
+                "Bad location":1,
+                "Big":1,
+                "Effecient":0,
+                "Many":0,
+                "2under1":1
+            }
+        },
+        {
+            "consequent": {
+                "300-500k": 1
+            },
+            "antecedent": {
+                "Bad location":0,
+                "Good location":0,
+                "Big":1,
+                "Effecient":0,
+                "Many":0,
+                "2under1":1
+
+            }
+        },
+        {
+            "consequent": {
+                "300-500k": 1
+            },
+            "antecedent": {
+                "Good location":1,
+                "Big":1,
+                "Effecient":0,
+                "Many":0,
+                "2under1":1
+            }
+        },
+        {
+            "consequent": {
+                "<300k":1
+            },
+            "antecedent": {
+                "Bad location":1,
+                "Big":1,
+                "Effecient":0,
+                "Many":1,
+                "2under1":1
+            }
+        },
+        {
+            "consequent": {
+                "300-500k": 1
+            },
+            "antecedent": {
+                "Bad location":0,
+                "Good location":0,
+                "Big":1,
+                "Effecient":0,
+                "Many":1,
+                "2under1":1
+
+            }
+        },
+        {
+            "consequent": {
+                "500-700k": 1
+            },
+            "antecedent": {
+                "Good location":1,
+                "Big":1,
+                "Effecient":0,
+                "Many":1,
+                "2under1":1
+            }
+        },
+        {
+            "consequent": {
+                "300-500k": 1
+            },
+            "antecedent": {
+                "Standalone": 1,
+                "Big": 0,
+                "Bad location": 1
+            }
+        },
+        {
+            "consequent": {
+                "500-700k": 1
+            },
+            "antecedent": {
+                "Standalone": 1,
+                "Big": 0,
+                "Bad location": 0,
+                "Good location": 0
+            }
+        },
+        {
+            "consequent": {
+                "500-700k": 1
+            },
+            "antecedent": {
+                "Standalone": 1,
+                "Big": 0,
+                "Good location": 1
+            }
+        },
+        {
+            "consequent": {
+                "700k+": 1
+            },
+            "antecedent": {
+                "Standalone": 1,
+                "Big": 1,
+                "Efficient": 1,
+                "Good location": 1
+            }
+        },
+        {
+            "consequent": {
+                "700k+": 1
+            },
+            "antecedent": {
+                "Standalone": 1,
+                "Big": 1,
+                "Efficient": 1,
+                "Good location": 0,
+                "Bad location": 0
+            }
+        },
+        {
+            "consequent": {
+                "500-700k": 1
+            },
+            "antecedent": {
+                "Standalone": 1,
+                "Big": 1,
+                "Efficient": 1,
+                "Bad location": 1
+            }
+        },
+        {
+            "consequent": {
+                "300-500k": 1
+            },
+            "antecedent": {
+                "Standalone": 1,
+                "Big": 1,
+                "Efficient": 0,
+                "Many": 0,
+                "Bad location": 1
+            }
+        },
+        {
+            "consequent": {
+                "300-500k": 1
+            },
+            "antecedent": {
+                "Standalone": 1,
+                "Big": 1,
+                "Efficient": 0,
+                "Many": 0,
+                "Bad location": 0,
+                "Good location": 0
+            }
+        },
+        {
+            "consequent": {
+                "500-700k": 1
+            },
+            "antecedent": {
+                "Standalone": 1,
+                "Big": 1,
+                "Efficient": 0,
+                "Many": 0,
+                "Good location": 1
+            }
+        },
+        {
+            "consequent": {
+                "700k+": 1
+            },
+            "antecedent": {
+                "Standalone": 1,
+                "Big": 1,
+                "Efficient": 0,
+                "Many": 1,
+                "Good location": 1
+            }
+        },
+        {
+            "consequent": {
+                "500-700k": 1
+            },
+            "antecedent": {
+                "Standalone": 1,
+                "Big": 1,
+                "Efficient": 0,
+                "Many": 1,
+                "Good location": 0,
+                "Bad location": 0
+            }
+        },
+        {
+            "consequent": {
+                "300-500k": 1
+            },
+            "antecedent": {
+                "Standalone": 1,
+                "Big": 1,
+                "Efficient": 0,
+                "Many": 1,
+                "Bad location": 1
+            }
+        },
+        {
+            "consequent": {
+                "300-500k": 1
+            },
+            "antecedent": {
+                "Standalone": 0,
+                "Apartment": 0,
+                "2under1": 0,
+                "Efficient": 1,
+                "Many": 0,
+                "Bad location": 1
+            }
+        },
+        {
+            "consequent": {
+                "300-500k": 1
+            },
+            "antecedent": {
+                "Standalone": 0,
+                "Apartment": 0,
+                "2under1": 0,
+                "Efficient": 1,
+                "Many": 0,
+                "Bad location": 0,
+                "Good location": 0
+            }
+        },
+        {
+            "consequent": {
+                "500-700k": 1
+            },
+            "antecedent": {
+                "Standalone": 0,
+                "Apartment": 0,
+                "2under1": 0,
+                "Efficient": 1,
+                "Good location": 1
+            }
+        },
+        {
+            "consequent": {
+                "500-700k": 1
+            },
+            "antecedent": {
+                "Standalone": 0,
+                "Apartment": 0,
+                "2under1": 0,
+                "Efficient": 1,
+                "Good location": 1
+            }
+        },
+        {
+            "consequent": {
+                "300-500k": 1
+            },
+            "antecedent": {
+                "Standalone": 0,
+                "Apartment": 0,
+                "2under1": 0,
+                "Efficient": 1,
+                "Many": 1,
+                "Good location": 0,
+                "Bad location": 0
+            }
+        },
+        {
+            "consequent": {
+                "300-500k": 1
+            },
+            "antecedent": {
+                "Standalone": 0,
+                "Apartment": 0,
+                "2under1": 0,
+                "Efficient": 1,
+                "Many": 1,
+                "Bad location": 1
+            }
+        },
+        {
+            "consequent": {
+                "<300k": 1
+            },
+            "antecedent": {
+                "Standalone": 0,
+                "Apartment": 0,
+                "2under1": 0,
+                "Efficient": 0,
+                "Many": 0,
+                "Bad location": 1
+            }
+        },
+        {
+            "consequent": {
+                "300-500k": 1
+            },
+            "antecedent": {
+                "Standalone": 0,
+                "Apartment": 0,
+                "2under1": 0,
+                "Efficient": 0,
+                "Many": 0,
+                "Bad location": 0,
+                "Good location": 0
+            }
+        },
+        {
+            "consequent": {
+                "300-500k": 1
+            },
+            "antecedent": {
+                "Standalone": 0,
+                "Apartment": 0,
+                "2under1": 0,
+                "Efficient": 0,
+                "Many": 0,
+                "Good location": 1
+            }
+        },
+        {
+            "consequent": {
+                "500-700k": 0
+            },
+            "antecedent": {
+                "Standalone": 0,
+                "Apartment": 0,
+                "2under1": 0,
+                "Efficient": 0,
+                "Many": 1,
+                "Good location": 1
+            }
+        },
+        {
+            "consequent": {
+                "300-500k": 1
+            },
+            "antecedent": {
+                "Standalone": 0,
+                "Apartment": 0,
+                "2under1": 0,
+                "Efficient": 0,
+                "Many": 1,
+                "Good location": 0,
+                "Bad location": 0
+            }
+        },
+        {
+            "consequent": {
+                "<300k": 1
+            },
+            "antecedent": {
+                "Standalone": 0,
+                "Apartment": 0,
+                "2under1": 0,
+                "Efficient": 0,
+                "Many": 1,
+                "Bad location": 1
+            }
+        },
         {
             "consequent": {
                 "Close proximity to store": 0
@@ -332,22 +1198,6 @@
             },
             "antecedent": {
                 "Close proximity to store": 1
-            }
-        },
-        {
-            "consequent": {
-                "Close proximity to school": 0
-            },
-            "antecedent": {
-                "Far away from school": 1
-            }
-        },
-        {
-            "consequent": {
-                "Far away from school": 0
-            },
-            "antecedent": {
-                "Close proximity to school": 1
             }
         },
         {
@@ -384,7 +1234,7 @@
         },
         {
             "consequent": {
-                "Location value": 0
+                "Bad location": 1
             },
             "antecedent": {
                 "Noise pollution": 1
@@ -392,7 +1242,7 @@
         },
         {
             "consequent": {
-                "Location value": 1
+                "Good location": 1
             },
             "antecedent": {
                 "Beautiful nature and/or view": 1,
@@ -401,16 +1251,17 @@
         },
         {
             "consequent": {
-                "Location value": 1
+                "Good location": 1
             },
             "antecedent": {
                 "Beautiful nature and/or view": 1,
-                "Close proximity to store": 1
+                "Close proximity to store": 1,
+                "Noise pollution":0
             }
         },
         {
             "consequent": {
-                "Location value": 0
+                "Bad location": 1
             },
             "antecedent": {
                 "Ugly environment and/or view": 1,
@@ -419,7 +1270,7 @@
         },
         {
             "consequent": {
-                "Location value": 0
+                "Bad location": 1
             },
             "antecedent": {
                 "Ugly environment and/or view": 1,
@@ -428,35 +1279,87 @@
         },
         {
             "consequent": {
-                "Location value": 1
+                "Good location": 1
             },
             "antecedent": {
                 "Good neighbourhood reputation": 1,
                 "Close proximity to store": 1,
-                "Close proximity to school": 1,
                 "Noise pollution": 0
             }
         },
         {
             "consequent": {
-                "Location value": 1
+                "Good location": 1
             },
             "antecedent": {
                 "Close proximity to store": 1,
-                "Close proximity to school": 1,
                 "Bad reputation of the neighbourhood": 0,
-                "Ugly environment and/or view": 0
+                "Ugly environment and/or view": 0,
+                "Noise pollution": 0
             }
         },
         {
             "consequent": {
-                "Location value": 0
+                "Bad Location": 0
             },
             "antecedent": {
                 "Far away from store": 1,
-                "Far away from school": 1,
                 "Good reputation of the neighbourhood": 0,
                 "Beautiful nature and/or view": 0
+            }
+        },
+        {
+            "consequent": {
+                "Many": 1
+            },
+            "antecedent": {
+                "Shed": 1,
+                "Pool": 1
+            }
+        },
+        {
+            "consequent": {
+                "Many": 1
+            },
+            "antecedent": {
+                "Shed": 1,
+                "Garage": 1
+            }
+        },
+        {
+            "consequent": {
+                "Many": 1
+            },
+            "antecedent": {
+                "Garage": 1,
+                "Pool": 1
+            }
+        },
+        {
+            "consequent": {
+                "Many": 0
+            },
+            "antecedent": {
+                "Garage": 0,
+                "Pool": 0
+            }
+        },
+        {
+            "consequent": {
+                "Many": 0
+            },
+            "antecedent": {
+                "Garage": 0,
+                "Shed": 0
+            }
+        },
+        {
+            "consequent": {
+                "Many": 0
+            },
+            "antecedent": {
+                "Shed": 0,
+                "Pool": 0
             }
         }
     ],
