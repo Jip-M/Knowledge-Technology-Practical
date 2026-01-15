@@ -8,6 +8,9 @@ class states(Enum):
     THINK = "think"
 
 
+DEBUG = False
+
+
 def change_state(state):
     st.session_state.state = state
 
@@ -26,5 +29,19 @@ if st.session_state.state.value == states.START.value:
     st.button("Begin", on_click=change_state, args=[states.THINK], icon="🚀")
 if st.session_state.state.value == states.THINK.value:
     st.button("Reset", on_click=change_state, args=[states.START], icon="🔄")
+
     e = Engine("knowledge.json")
     e.forward_inf()
+
+    if DEBUG:
+        for fact in e.kb["facts"]:
+            if fact["name"] == "Good location":
+                st.write("GOOD: ", fact["value"])
+            if fact["name"] == "Bad location":
+                st.write("BAD: ", fact["value"])
+            if fact["name"] == "Many":
+                st.write("Many: ", fact["value"])
+            if fact["name"] == "Big":
+                st.write("Big: ", fact["value"])
+            if fact["name"] == "Efficient":
+                st.write("Efficient: ", fact["value"])

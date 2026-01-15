@@ -67,7 +67,6 @@
             "uniselect": false,
             "asked": false,
             "options": [
-                "Close proximity to school",
                 "Close proximity to store",
                 "Good reputation of the neighbourhood",
                 "Beautiful nature and/or view"
@@ -79,7 +78,6 @@
             "uniselect": false,
             "asked": false,
             "options": [
-                "Far away from school",
                 "Far away from store",
                 "Bad reputation of the neighbourhood",
                 "Ugly environment and/or view",
@@ -240,14 +238,6 @@
     "rules": [
         {
             "consequent": {
-                "0-100m2": 1
-            },
-            "antecedent": {
-                "Apartment": 1
-            }
-        },
-        {
-            "consequent": {
                 "Pool": 0
             },
             "antecedent": {
@@ -370,7 +360,16 @@
                 "Efficient": 1
             },
             "antecedent": {
-                "Small": 1,
+                "Big": 0,
+                "B-C": 1
+            }
+        },
+        {
+            "consequent": {
+                "Efficient": 0
+            },
+            "antecedent": {
+                "Big": 1,
                 "B-C": 1
             }
         },
@@ -629,7 +628,7 @@
             "antecedent": {
                 "Bad location":1,
                 "Big":0,
-                "Effecient":1,
+                "Efficient":1,
                 "2under1":1
             }
         },
@@ -641,7 +640,7 @@
                 "Bad location":0,
                 "Good location":0,
                 "Big":0,
-                "Effecient":1,
+                "Efficient":1,
                 "2under1":1
             }
         },
@@ -652,7 +651,7 @@
             "antecedent": {
                 "Good location":1,
                 "Big":0,
-                "Effecient":1,
+                "Efficient":1,
                 "2under1":1
             }
         },
@@ -663,7 +662,7 @@
             "antecedent": {
                 "Bad location":1,
                 "Big":0,
-                "Effecient":0,
+                "Efficient":0,
                 "Many":0,
                 "2under1":1
             }
@@ -676,7 +675,7 @@
                 "Bad location":0,
                 "Good location":0,
                 "Big":0,
-                "Effecient":0,
+                "Efficient":0,
                 "Many":0,
                 "2under1":1
 
@@ -689,7 +688,7 @@
             "antecedent": {
                 "Good location":1,
                 "Big":0,
-                "Effecient":0,
+                "Efficient":0,
                 "Many":0,
                 "2under1":1
             }
@@ -704,7 +703,7 @@
             "antecedent": {
                 "Bad location":1,
                 "Big":0,
-                "Effecient":0,
+                "Efficient":0,
                 "Many":1,
                 "2under1":1
             }
@@ -717,7 +716,7 @@
                 "Bad location":0,
                 "Good location":0,
                 "Big":0,
-                "Effecient":0,
+                "Efficient":0,
                 "Many":1,
                 "2under1":1
 
@@ -730,7 +729,7 @@
             "antecedent": {
                 "Good location":1,
                 "Big":0,
-                "Effecient":0,
+                "Efficient":0,
                 "Many":1,
                 "2under1":1
             }
@@ -742,7 +741,7 @@
             "antecedent": {
                 "Bad location":1,
                 "Big":1,
-                "Effecient":1,
+                "Efficient":1,
                 "Many":0,
                 "2under1":1
             }
@@ -755,7 +754,7 @@
                 "Bad location":0,
                 "Good location":0,
                 "Big":1,
-                "Effecient":1,
+                "Efficient":1,
                 "Many":0,
                 "2under1":1
 
@@ -768,7 +767,7 @@
             "antecedent": {
                 "Good location":1,
                 "Big":1,
-                "Effecient":1,
+                "Efficient":1,
                 "Many":0,
                 "2under1":1
             }
@@ -780,7 +779,7 @@
             "antecedent": {
                 "Bad location":1,
                 "Big":1,
-                "Effecient":1,
+                "Efficient":1,
                 "Many":1,
                 "2under1":1
             }
@@ -793,7 +792,7 @@
                 "Bad location":0,
                 "Good location":0,
                 "Big":1,
-                "Effecient":1,
+                "Efficient":1,
                 "Many":1,
                 "2under1":1
 
@@ -806,7 +805,7 @@
             "antecedent": {
                 "Good location":1,
                 "Big":1,
-                "Effecient":1,
+                "Efficient":1,
                 "Many":1,
                 "2under1":1
             }
@@ -818,7 +817,7 @@
             "antecedent": {
                 "Bad location":1,
                 "Big":1,
-                "Effecient":0,
+                "Efficient":0,
                 "Many":0,
                 "2under1":1
             }
@@ -831,7 +830,7 @@
                 "Bad location":0,
                 "Good location":0,
                 "Big":1,
-                "Effecient":0,
+                "Efficient":0,
                 "Many":0,
                 "2under1":1
 
@@ -844,7 +843,7 @@
             "antecedent": {
                 "Good location":1,
                 "Big":1,
-                "Effecient":0,
+                "Efficient":0,
                 "Many":0,
                 "2under1":1
             }
@@ -856,7 +855,7 @@
             "antecedent": {
                 "Bad location":1,
                 "Big":1,
-                "Effecient":0,
+                "Efficient":0,
                 "Many":1,
                 "2under1":1
             }
@@ -869,7 +868,7 @@
                 "Bad location":0,
                 "Good location":0,
                 "Big":1,
-                "Effecient":0,
+                "Efficient":0,
                 "Many":1,
                 "2under1":1
 
@@ -882,7 +881,7 @@
             "antecedent": {
                 "Good location":1,
                 "Big":1,
-                "Effecient":0,
+                "Efficient":0,
                 "Many":1,
                 "2under1":1
             }
@@ -1242,70 +1241,116 @@
         },
         {
             "consequent": {
-                "Good location": 1
-            },
-            "antecedent": {
-                "Beautiful nature and/or view": 1,
-                "Good reputation of the neighbourhood": 1
-            }
-        },
-        {
-            "consequent": {
-                "Good location": 1
-            },
-            "antecedent": {
-                "Beautiful nature and/or view": 1,
-                "Close proximity to store": 1,
-                "Noise pollution":0
-            }
-        },
-        {
-            "consequent": {
                 "Bad location": 1
-            },
-            "antecedent": {
-                "Ugly environment and/or view": 1,
-                "Bad reputation of the neighbourhood": 1
-            }
-        },
-        {
-            "consequent": {
-                "Bad location": 1
-            },
-            "antecedent": {
-                "Ugly environment and/or view": 1,
-                "Far away from store": 1
-            }
-        },
-        {
-            "consequent": {
-                "Good location": 1
-            },
-            "antecedent": {
-                "Good neighbourhood reputation": 1,
-                "Close proximity to store": 1,
-                "Noise pollution": 0
-            }
-        },
-        {
-            "consequent": {
-                "Good location": 1
-            },
-            "antecedent": {
-                "Close proximity to store": 1,
-                "Bad reputation of the neighbourhood": 0,
-                "Ugly environment and/or view": 0,
-                "Noise pollution": 0
-            }
-        },
-        {
-            "consequent": {
-                "Bad Location": 0
             },
             "antecedent": {
                 "Far away from store": 1,
-                "Good reputation of the neighbourhood": 0,
-                "Beautiful nature and/or view": 0
+                "Bad reputation of the neighbourhood":1
+            }
+        },
+        {
+            "consequent": {
+                "Bad location": 1
+            },
+            "antecedent": {
+                "Far away from store": 1,
+                "Ugly environment and/or view":1
+            }
+        },
+        {
+            "consequent": {
+                "Bad location": 1
+            },
+            "antecedent": {
+                "Ugly environment and/or view": 1,
+                "Bad reputation of the neighbourhood":1
+            }
+        },
+        {
+            "consequent": {
+                "Bad location": 0
+            },
+            "antecedent": {
+                "Far away from store": 0,
+                "Bad reputation of the neighbourhood":0,
+                "Noise pollution": 0
+            }
+        },
+        {
+            "consequent": {
+                "Bad location": 0
+            },
+            "antecedent": {
+                "Far away from store": 0,
+                "Ugly environment and/or view":0,
+                "Noise pollution": 0
+            }
+        },
+        {
+            "consequent": {
+                "Bad location": 0
+            },
+            "antecedent": {
+                "Ugly environment and/or view": 0,
+                "Bad reputation of the neighbourhood":0,
+                "Noise pollution": 0
+            }
+        },
+        {
+            "consequent": {
+                "Good location": 1
+            },
+            "antecedent": {
+                "Close proximity to store": 1,
+                "Good reputation of the neighbourhood":1,
+                "Noise pollution": 0
+            }
+        },
+        {
+            "consequent": {
+                "Good location": 1
+            },
+            "antecedent": {
+                "Beautiful nature and/or view": 1,
+                "Good reputation of the neighbourhood":1,
+                "Noise pollution": 0
+            }
+        },
+        {
+            "consequent": {
+                "Good location": 1
+            },
+            "antecedent": {
+                "Beautiful nature and/or view": 1,
+                "Close proximity to store":1,
+                "Noise pollution": 0
+            }
+        },
+        {
+            "consequent": {
+                "Good location": 0
+            },
+            "antecedent": {
+                "Close proximity to store": 0,
+                "Good reputation of the neighbourhood":0
+            }
+        },
+        {
+            "consequent": {
+                "Good location": 0
+            },
+            "antecedent": {
+                "Beautiful nature and/or view": 0,
+                "Good reputation of the neighbourhood":0
+            }
+        },
+        {
+            "consequent": {
+                "Good location": 0
+            },
+            "antecedent": {
+                "Beautiful nature and/or view": 0,
+                "Close proximity to store":0
             }
         },
         {
